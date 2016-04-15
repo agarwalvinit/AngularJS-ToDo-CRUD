@@ -1,0 +1,19 @@
+
+<table ng-repeat="todo in ToDoList">
+    <thead>
+    <tr>
+        <th>Heading</th>
+        <th>Description</th>
+        <th><a href="#/new/{{$index}}"><i class="icon-plus-sign"></i></a></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-class="project.status === 'pending' ? 'pending' : project.status === 'progress' ? 'progress' : 'completed'" ng-repeat="project in todo | orderBy:'name'">
+        <td>{{project.name}}</td>
+        <td>{{project.description}}</td>
+        <td>
+            <a ng-href="#/edit/{{$parent.$index}}/{{$index}}"><i class="icon-pencil"></i></a>
+        </td>
+    </tr>
+    </tbody>
+</table>

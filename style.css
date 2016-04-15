@@ -1,0 +1,23 @@
+body {
+    background: #EEEEEE;
+    text-align: center;
+}
+.search-query {
+    padding-bottom: 50px;
+}
+table {
+    margin: auto;
+    width: 50%;
+}
+tr:not(:first-child) {
+    border: 1px solid black;
+}
+.pending {
+    background: green;
+}
+.progress {
+    background: yellow;
+}
+.completed {
+    background: red;
+}
