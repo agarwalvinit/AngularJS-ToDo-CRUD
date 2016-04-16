@@ -1,4 +1,10 @@
-
+<button ng-click="addNew()">Add New</button><br><br>
+<select type="text" ng-model="searchStatus" placeholder="Search">
+    <option value="">---please select here----</option>
+    <option value="pending">pending</option>
+    <option value="progress">in progress</option>
+    <option value="completed">completed</option>
+</select>
 <table ng-repeat="todo in ToDoList">
     <thead>
     <tr>
@@ -8,7 +14,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-class="project.status === 'pending' ? 'pending' : project.status === 'progress' ? 'progress' : 'completed'" ng-repeat="project in todo | orderBy:'name'">
+    <tr ng-class="project.status === 'pending' ? 'pending' : project.status === 'progress' ? 'progress' : 'completed'" ng-repeat="project in todo | filter: searchStatus | orderBy:'name'">
         <td>{{project.name}}</td>
         <td>{{project.description}}</td>
         <td>

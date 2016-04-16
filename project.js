@@ -56,6 +56,19 @@ angular.module('project', ['ngRoute'])
         $scope.deleteButton = false;
         $scope.ToDoList = GlobalVariable.ToDoList;
         console.log(GlobalVariable.ToDoList);
+        $scope.addNew = function () {
+            var list = GlobalVariable.ToDoList;
+            var arr = Object.keys(list);
+            var newValue = "todoList"+(arr.length+1);
+            GlobalVariable.ToDoList[newValue] = [
+                {
+                    name: 'Add New',
+                    status: 'pending',
+                    description: 'Edit this item!'
+                }
+            ];
+            $scope.ToDoList = GlobalVariable.ToDoList;
+        }
 
     })
     .controller('NewProjectController', function ($location, GlobalVariable, $scope, $routeParams) {
